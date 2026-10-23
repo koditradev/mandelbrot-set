@@ -2,10 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Mandelbrot Set Viewer</title>
+    <title>Mandelbrot Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            background: black;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <h1>Mandelbrot Set</h1>
+    <canvas id="fractal"></canvas>
+
+    <script>
+        const canvas = document.getElementById("fractal");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        ctx.fillStyle = "white";
+        ctx.fillRect(100, 100, 200, 200);
+    </script>
 </body>
 </html>
