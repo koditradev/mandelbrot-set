@@ -24,8 +24,28 @@
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
+        function mandelbrot(cx, cy, maxIterations) {
+            let x = 0;
+            let y = 0;
+            let iterations = 0;
+
+            while (x * x + y * y <= 4 &&
+                   iterations < maxIterations) {
+                const nextX = x * x - y * y + cx;
+                const nextY = 2 * x * y + cy;
+
+                x = nextX;
+                y = nextY;
+                iterations++;
+            }
+
+            return iterations;
+        }
+
+        const result = mandelbrot(-0.5, 0, 100);
+
         ctx.fillStyle = "white";
-        ctx.fillRect(100, 100, 200, 200);
+        ctx.fillText("Iterations: " + result, 20, 30);
     </script>
 </body>
 </html>
